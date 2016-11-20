@@ -167,7 +167,7 @@ namespace Xamarin.Auth
 		/// </param>
 		protected virtual void OnRedirectPageLoaded (Uri url, IDictionary<string, string> query, IDictionary<string, string> fragment)
 		{
-			OnSucceeded ("", fragment);
+			OnSucceeded ("", query);
 		}
 	}
 }

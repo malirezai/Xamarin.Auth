@@ -31,6 +31,9 @@ using AuthenticateUIType = MonoTouch.UIKit.UIViewController;
 #elif PLATFORM_ANDROID
 using AuthenticateUIType = Android.Content.Intent;
 using UIContext = Android.Content.Context;
+using Android.Webkit;
+using Android;
+using Android.App;
 #else
 using AuthenticateUIType = System.Object;
 #endif
@@ -106,8 +109,9 @@ namespace Xamarin.Auth
 				store.DeleteCookie (c);
 			}
 #elif PLATFORM_ANDROID
-			Android.Webkit.CookieSyncManager.CreateInstance (Android.App.Application.Context);
-			Android.Webkit.CookieManager.Instance.RemoveAllCookie ();
+
+			CookieSyncManager.CreateInstance (Application.Context);
+			CookieManager.Instance.RemoveAllCookie ();
 #endif
 		}
 

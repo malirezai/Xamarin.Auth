@@ -23,6 +23,7 @@ using Android.App;
 using Android.OS;
 using Android.Widget;
 using Android.Util;
+using AUri = Android.Net;
 using Xamarin.Utilities.Android;
 
 namespace Xamarin.Auth
@@ -231,7 +232,7 @@ namespace Xamarin.Auth
 
 		void HandleCreateAccount (object sender, EventArgs e)
 		{
-			var intent = new Intent (Intent.ActionView, Android.Net.Uri.Parse (state.Authenticator.CreateAccountLink.AbsoluteUri));
+			var intent = new Intent (Intent.ActionView, AUri.Uri.Parse (state.Authenticator.CreateAccountLink.AbsoluteUri));
 			StartActivity (intent);
 		}
 

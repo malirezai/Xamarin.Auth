@@ -30,6 +30,7 @@ using AuthenticateUIType = MonoTouch.UIKit.UIViewController;
 #elif PLATFORM_ANDROID
 using AuthenticateUIType = Android.Content.Intent;
 using UIContext = Android.Content.Context;
+using AppContext = Android.App;
 #else
 using AuthenticateUIType = System.Object;
 #endif
@@ -207,7 +208,7 @@ namespace Xamarin.Auth
 				action ();
 			});
 #elif PLATFORM_ANDROID
-			var a = context as Android.App.Activity;
+			var a = context as AppContext.Activity;
 			if (a != null) {
 				a.RunOnUiThread (action);
 			}
